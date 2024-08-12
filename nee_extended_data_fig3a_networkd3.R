@@ -1,11 +1,11 @@
 library(networkD3)
 datf = 
-  read.csv("D:/Xiamen/Single_cell/Singleron/publication/figures/fig3/lineage_from_to_new_short.csv", 
+  read.csv("file_with_edge_weight_and_identity_data.csv", 
            header = TRUE)
 datf$Edge_weight = datf$Edge_weight*100
 head(datf, n = 3)
 names = 
-  read.csv("D:/Xiamen/Single_cell/Singleron/publication/figures/fig3/lineage_identity_new_short.csv",
+  read.csv("file_with_identity_and_class_data.csv",
            header = TRUE)
 head(names, n = 3)
 datf$Edge_type <- as.factor(datf$Edge_type)
@@ -62,7 +62,7 @@ onRender(sankey,
   }
   '
 )
-setwd("D:/Xiamen/Single_cell/Singleron/publication/figures/fig3")
+setwd("your_directory")
 saveNetwork(sankey, "sankey_all.html")
 #install.packages("webshot2")
 library(webshot2)
