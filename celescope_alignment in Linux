@@ -1,0 +1,30 @@
+##download celescope from GitHub Master file
+##unzip folder locally
+cd CeleScope
+conda create -n mamba mamba
+conda activate mamba
+mamba create -n celescope-1.10.0 -y --file conda_pkgs.txt
+conda activate celescope
+pip install celescope
+
+##make reference genome
+celescope rna mkref \
+ --genome_name Branchiostome_floridae_211109_mt \
+ --fasta /data/home/slr/dyc/reference/1109_updated_reference/bf.v3.mt.fa \
+ --gtf /data/home/slr/dyc/reference/1109_updated_reference/bf.2111.new.gtf
+
+##make mapfile.txt
+PW1	/data/home/slr/dyc/singleron/rawdata	PW1
+PK1	/data/home/slr/dyc/singleron/rawdata	PK1
+
+##write sh file
+multi_rna \
+--mapfile mapfile.txt \
+--genomeDir /data/home/slr/dyc/singleron/Bf_genome_mt \
+--gtf_type exon \
+--thread 8 \
+--mod shell \
+--rm_files
+
+##run .sh file and get Celescope alignment results
+sh sh_file_name.sh 
