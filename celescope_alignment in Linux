@@ -8,6 +8,7 @@ conda activate celescope
 pip install celescope
 
 ##make reference genome
+##both file mentioned below can be downloaded via ScienceDB (see link in paper and on main page)
 celescope rna mkref \
  --genome_name Branchiostome_floridae_211109_mt \
  --fasta /data/home/slr/dyc/reference/1109_updated_reference/bf.v3.mt.fa \
